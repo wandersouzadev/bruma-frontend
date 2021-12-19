@@ -1,0 +1,35 @@
+query ContactPage {
+  contactPage {
+    SEO {
+      title
+      description
+      keywords
+    }
+  }
+  socialLink {
+    whatsapp {
+      text
+      url
+    }
+    email {
+      text
+      url
+    }
+    facebook {
+      text
+      url
+    }
+    instagram {
+      text
+      url
+    }
+    linkedin {
+      text
+      url
+    }
+    medium {
+      text
+      url
+    }
+  }
+}

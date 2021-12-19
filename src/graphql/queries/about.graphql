@@ -1,0 +1,23 @@
+query AboutPage($limit: Int! = 6) {
+  aboutPage {
+    SEO {
+      title
+      description
+      keywords
+    }
+  }
+  professionalExperiences {
+    in
+    out
+    employer
+    job
+    description
+  }
+  blogPosts(limit: $limit, sort: "created_at:DESC") {
+    ...BlogPostSliderFields
+  }
+  # in about page get only one portfolio
+  portfolios(limit: 1, sort: "created_at:DESC") {
+    ...PortfolioSliderFields
+  }
+}

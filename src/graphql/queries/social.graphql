@@ -1,0 +1,20 @@
+query SocialLinks {
+  socialLink {
+    facebook {
+      text
+      url
+    }
+    instagram {
+      text
+      url
+    }
+    linkedin {
+      text
+      url
+    }
+    medium {
+      text
+      url
+    }
+  }
+}

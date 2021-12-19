@@ -1,0 +1,24 @@
+
+query HomePage($limit: Int! = 6) {
+  blogPosts(limit: $limit, sort: "created_at:DESC") {
+    ...BlogPostSliderFields
+  }
+  portfolios(limit: $limit, sort: "created_at:DESC") {
+    ...PortfolioSliderFields
+  }
+  testimonials {
+    name
+    message
+    image {
+      alternativeText
+      url
+  }
+  }
+  homePage {
+    SEO {
+      title
+      description
+      keywords
+    }
+  }
+}

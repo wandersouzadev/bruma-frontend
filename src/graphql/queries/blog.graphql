@@ -1,0 +1,47 @@
+query BlogPage($limit: Int! = 6) {
+  blogPage {
+    SEO {
+      title
+      description
+      keywords
+    }
+  }
+  portfolios(limit: $limit, sort: "created_at:DESC") {
+    ...PortfolioSliderFields
+  }
+  blogPosts(limit: $limit, sort: "created_at:DESC") {
+    ...BlogPostPageFields
+  }
+}
+
+query BlogPost($limit: Int! = 6) {
+  blogPosts(limit: $limit, sort: "created_at:DESC") {
+    ...BlogPostPageFields
+  }
+}
+
+query BlogPostSlug {
+  blogPosts{
+    slug
+  }
+}
+
+query BlogPostForSlider($limit: Int! = 6) {
+  blogPosts(limit: $limit, sort: "created_at:DESC"){
+    ...BlogPostSliderFields
+  }
+}
+
+
+
+query BlogPostBySlug($slug: String!) {
+  blogPosts(where: { slug: $slug }) {
+    ...BlogPostFields
+    SEO {
+      title
+      description
+      keywords
+    }
+  }
+}
+

@@ -1,0 +1,54 @@
+# all required data to mount portfolio page
+query PortfolioPage($limit: Int! = 7) {
+  portfolioPage {
+    SEO {
+      title
+      description
+      keywords
+    }
+  }
+  portfolios(limit: $limit, sort: "created_at:DESC") {
+    ...PortfolioPageFields
+  }
+  blogPosts(limit: $limit, sort: "created_at:DESC") {
+    ...BlogPostSliderFields
+  }
+}
+
+
+# client side query to fetch more portfolios if necessary
+query Portfolio($start: Int! = 1) {
+  portfolios(start: $start, sort: "created_at:DESC") {
+    ...PortfolioPageFields
+  }
+}
+
+
+# all required data to mount portfolio post page
+# portfolio with category customer and Seo props
+query PortfolioBySlug($slug: String!) {
+  portfolios(where: { slug: $slug }) {
+    ...PortfolioPostFields
+    SEO {
+      title
+      description
+      keywords
+    }
+  }
+}
+
+# only slug of all portfolio posts
+# small query to mount all portfolio post pages at build time
+query PortfolioSlug {
+  portfolios {
+    slug
+  }
+}
+
+# only required data to mount portfolio slider
+query PortfolioSlider($limit: Int! = 6) {
+  portfolios(limit: $limit, sort: "created_at:DESC") {
+    ...PortfolioSliderFields
+  }
+}
+

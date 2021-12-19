@@ -1,0 +1,16 @@
+query JournalisticPage($limit: Int! = 6) {
+  journalisticPage {
+    text
+    SEO {
+      title
+      description
+      keywords
+    }
+  }
+  portfolios(limit: $limit, sort: "created_at:DESC") {
+    ...PortfolioSliderFields
+  }
+  blogPosts(limit: $limit, sort: "created_at:DESC") {
+    ...BlogPostSliderFields
+  }
+}

@@ -1,0 +1,92 @@
+
+
+# PORTFOLIO FRAGMENTS 
+
+fragment PortfolioCoverFields on Portfolio {
+  cover {
+    alternativeText
+    url
+  }
+}
+
+fragment PortfolioSliderFields on Portfolio {
+  slug
+  title
+  ...PortfolioCoverFields
+  created_at
+}
+
+fragment PortfolioPageFields on Portfolio {
+  slug
+  title
+  description
+  content
+  ...PortfolioCoverFields
+  category {
+    name
+  }
+  created_at
+}
+
+fragment PortfolioPostFields on Portfolio {
+  slug
+  title
+  description
+  content
+  ...PortfolioCoverFields
+  category {
+    name
+  }
+  customer {
+    name
+    logo {
+      alternativeText
+      url
+    }
+  }
+  created_at
+}
+
+# BLOG FRAGMENTS
+
+fragment BlogPostCoverFields on BlogPost {
+  cover {
+    alternativeText
+    url
+  }
+}
+
+fragment BlogPostSliderFields on BlogPost {
+  slug
+  title
+  ...BlogPostCoverFields
+  created_at
+}
+
+fragment BlogPostPageFields on BlogPost {
+  id
+  title
+  description
+  content
+  ...BlogPostCoverFields
+  author {
+    username
+  }
+  created_at
+}
+
+fragment BlogPostFields on BlogPost {
+  slug
+  title
+  description
+  content
+  author {
+    username
+  }
+  ...BlogPostCoverFields
+  created_at
+  updated_at
+}
+
+
+
